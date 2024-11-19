@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://emojipedia-us.s3.amazonaws.com/source/skype/289/grinning-face-with-sweat_1f605.png">
+    <title>Rishab Bhandari</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #fcfcfc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100vh;
+            padding-left: 15%;
+            text-align: left;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 4em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h1::after {
+            content: " 👋";
+            font-size: 0.9em;
+            margin-left: 0.5em;
+        }
+
+        .location {
+            font-size: 1.25em;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .fun-fact {
+            font-size: 1.25em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            border: 2px solid #333;
+            padding: 10px 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-container a[href="#contact"] {
+            href: "mailto:rishab.bhandari@gmail.com";
+        }
+
+        .button-container a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        p.small-note {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        #work,
+        #socials,
+        #blog {
+            max-width: 800px;
+            margin: 150px auto;
+            padding: 40px;
+            text-align: left;
+            border-top: 2px solid #ddd;
+        }
+
+        #work h2,
+        #socials h2,
+        #blog h2 {
+            font-size: 2.25em;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.75em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .experience h3 {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 2px;
+        }
+
+        .experience .details {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 2px;
+        }
+
+        .experience .investments {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .education h3 {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 2px;
+        }
+
+        .education .gpa {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 2px;
+        }
+
+        .education .degree {
+            font-size: 1em;
+        }
+
+        #socials ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #socials ul li {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+        }
+
+        #blog table {
+            width: 100%;
+            text-align: left;
+            font-size: 1.25em;
+            border-spacing: 0 10px;
+        }
+
+        #blog table td {
+            padding: 10px;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border: 2px solid #333;
+            padding: 10px 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Rishab Bhandari</h1>
+        <p class="location">San Francisco, California | Princeton, New Jersey</p>
+        <p class="fun-fact" id="current-status">Fun Fact: Running my first marathon</p>
+        <div class="button-container">
+            <a href="#work">About Me</a>
+            <a href="#blog">Blog</a>
+            <a href="#socials">Where to Find Me</a>
+            <a href="mailto:rishab.bhandari@gmail.com">Get in Touch</a>
+        </div>
+        <p class="small-note">You can also scroll down!</p>
+    </main>
+
+    <section id="work">
+        <h2>About Me</h2>
+        <div class="section-title">Work Experience</div>
+        <div class="experience">
+            <h3>Alkeon Capital</h3>
+            <p class="details">2023 - Present &bull; San Francisco, California</p>
+            <p class="investments">Investments: Databricks, Figma, Zip, Armis, Verkada, 6Sense, Drata, Deepgram<br>
+                Exits: AuditBoard (Acquired by Hg)</p>
+        </div>
+        <div class="experience">
+            <h3>ICONIQ Capital</h3>
+            <p class="details">2021 - 2023 &bull; San Francisco, California</p>
+            <p class="investments">Investments: Drata, Fivetran, Unite Us<br>
+                Exits: Bill.com (BILL US), CrowdStrike (CRWD US)</p>
+        </div>
+        <div class="section-title">Education</div>
+        <div class="education">
+            <h3>Cornell University</h3>
+            <p class="gpa">GPA: 4.0, Summa Cum Laude</p>
+            <p class="degree">Degree: Double Major in Applied Economics and Management & Computer and Information
+                Science</p>
+        </div>
+        <div class="education">
+            <h3>West Windsor-Plainsboro High School South</h3>
+            <p class="gpa">Grade: 4.78 (Top 5% of Graduating Class)</p>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>Here are a few of my recent musings:</p>
+        <table>
+            <tr>
+                <td><a
+                        href="https://docs.google.com/document/d/1RqBLCKMFgp44Tg3R1VF1lZmgrcfg6CFI25opK4Pdijg/edit?usp=sharing">
+                        ServiceTitan IPO </a></td>
+                <td>November 2024</td>
+            </tr>
+
+        </table>
+    </section>
+
+    <section id="socials">
+        <h2>Where to Find Me</h2>
+        <p>Here are a few places you can find me online:</p>
+        <ul>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Strava</a></li>
+            <li><a href="#">GitHub</a></li>
+        </ul>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const statusList = [
+                "I used to run a meme page in high school that had over 10K likes",
+                "Selling custom t-shirts for local events was my first entrepreneurial scheme",
+                "Recently ran my first marathon",
+                "My favorite word is autotellic - meaning having a purpose in and not apart from itself",
+                "Working at Alkeon, investing in exceptional founders"
+            ];
+            let index = 0;
+            function updateStatus() {
+                const currentStatus = document.getElementById("current-status");
+                currentStatus.textContent = `Fun Fact: ${statusList[index]}`;
+                index = (index + 1) % statusList.length;
+            }
+            setInterval(updateStatus, 4000);
+        });
+    </script>
+</body>
+
+</html>
