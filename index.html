@@ -45,18 +45,6 @@
             margin-bottom: 15px;
         }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         .fun-fact-container {
             font-size: 1.25em;
             margin-bottom: 20px;
@@ -65,8 +53,9 @@
         }
 
         .fun-fact-dynamic {
-            opacity: 0;
-            animation: slideIn 0.5s ease-in-out forwards;
+            display: inline-block;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .button-container {
@@ -83,6 +72,10 @@
             font-weight: bold;
             font-size: 1em;
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-container a[href="#contact"] {
+            href: "mailto:rishab.bhandari@gmail.com";
         }
 
         .button-container a:hover {
@@ -122,6 +115,70 @@
             margin-bottom: 5px;
         }
 
+        .experience h3 {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 2px;
+        }
+
+        .experience .details {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 2px;
+        }
+
+        .experience .investments {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .education h3 {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 2px;
+        }
+
+        .education .gpa {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 2px;
+        }
+
+        .education .degree {
+            font-size: 1em;
+        }
+
+        #socials ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #socials ul li {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+        }
+
+        #blog table {
+            width: 100%;
+            text-align: left;
+            font-size: 1.25em;
+            border-spacing: 0 10px;
+        }
+
+        #blog table td {
+            padding: 10px;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
         .home-button {
             position: absolute;
             top: 20px;
@@ -143,13 +200,14 @@
 </head>
 
 <body>
+
     <main>
         <h1>Rishab Bhandari</h1>
         <p class="location">San Francisco, California | Princeton, New Jersey</p>
-        <div class="fun-fact-container">
-            <span>Fun Fact:</span>
+        <p class="fun-fact-container">
+            <span class="fun-fact-static">Fun Fact:</span>
             <span class="fun-fact-dynamic" id="dynamic-fact">I recently ran my first marathon</span>
-        </div>
+        </p>
         <div class="button-container">
             <a href="#work">About Me</a>
             <a href="#blog">Blog</a>
@@ -158,6 +216,7 @@
         </div>
         <p class="small-note">You can also scroll down!</p>
     </main>
+
 
     <section id="work">
         <h2>About Me</h2>
@@ -187,7 +246,6 @@
         </div>
     </section>
 
-
     <section id="blog">
         <h2>Blog</h2>
         <p>Here are a few of my recent musings:</p>
@@ -204,9 +262,11 @@
 
     <section id="socials">
         <h2>Where to Find Me</h2>
+        <p>Here are a few places you can find me online:</p>
         <ul>
             <li><a href="https://www.linkedin.com/in/rb725/">LinkedIn</a></li>
-            <li><a href="https://strava.app.link/DklELy9eFOb">Strava</a></li>
+            <li><a href="https://strava.app.link/DklELy9eFOb">Strava</a>
+            </li>
             <li><a href="https://github.com/RishabBhandari">GitHub</a></li>
         </ul>
     </section>
@@ -214,6 +274,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const statusList = [
+                "I recently ran my first marathon",
                 "I used to run a meme page in high school that had over 10K likes",
                 "Selling custom t-shirts for local events was my first entrepreneurial scheme",
                 "My favorite word is autotellic - meaning having a purpose in and not apart from itself",
@@ -221,17 +282,23 @@
             let index = 0;
             const dynamicFact = document.getElementById("dynamic-fact");
 
-            function updateStatus() {
-                dynamicFact.style.animation = "none"; // Reset animation
-                void dynamicFact.offsetWidth; // Trigger reflow
-                dynamicFact.textContent = statusList[index];
-                dynamicFact.style.animation = "slideIn 0.5s ease-in-out forwards"; // Restart animation
-                index = (index + 1) % statusList.length;
+            function updateFact() {
+                // Start fade out
+                dynamicFact.style.opacity = 0;
+
+                // Wait for fade-out to finish, then update text and fade back in
+                setTimeout(() => {
+                    dynamicFact.textContent = statusList[index]; // Update text
+                    dynamicFact.style.opacity = 1; // Fade in
+                    index = (index + 1) % statusList.length; // Move to the next fact
+                }, 500); // Match fade-out duration
             }
 
-            setInterval(updateStatus, 3000); // Change every 3 seconds
+            setInterval(updateFact, 3000); // Change fact every 3 seconds
         });
     </script>
+
+
 </body>
 
 </html>
