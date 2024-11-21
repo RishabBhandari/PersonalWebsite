@@ -21,13 +21,13 @@
             align-items: flex-start;
             justify-content: center;
             height: 100vh;
-            padding-left: 15%;
+            padding: 5%;
             text-align: left;
         }
 
         h1 {
             font-weight: bold;
-            font-size: 4em;
+            font-size: 2.5em;
             margin: 0;
             display: flex;
             align-items: center;
@@ -40,13 +40,13 @@
         }
 
         .location {
-            font-size: 1.25em;
+            font-size: 1em;
             margin-top: 10px;
             margin-bottom: 15px;
         }
 
         .fun-fact-container {
-            font-size: 1.25em;
+            font-size: 1em;
             margin-bottom: 20px;
             display: flex;
             gap: 5px;
@@ -60,22 +60,19 @@
 
         .button-container {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 20px;
         }
 
         .button-container a {
             border: 2px solid #333;
-            padding: 10px 25px;
+            padding: 10px 15px;
             text-decoration: none;
             color: #333;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 0.9em;
             transition: background-color 0.3s, color 0.3s;
-        }
-
-        .button-container a[href="#contact"] {
-            href: "mailto:rishab.bhandari@gmail.com";
         }
 
         .button-container a:hover {
@@ -86,23 +83,15 @@
         p.small-note {
             margin-top: 10px;
             color: #7f8c8d;
-            font-size: 0.9em;
+            font-size: 0.8em;
         }
 
-        #work,
-        #socials,
-        #blog {
-            max-width: 800px;
-            margin: 150px auto;
-            padding: 40px;
-            text-align: left;
-            border-top: 2px solid #ddd;
+        section {
+            padding: 20px 5%;
         }
 
-        #work h2,
-        #socials h2,
-        #blog h2 {
-            font-size: 2.25em;
+        section h2 {
+            font-size: 1.75em;
             margin-bottom: 15px;
             text-align: left;
         }
@@ -110,62 +99,49 @@
         .section-title {
             font-weight: bold;
             text-decoration: underline;
-            font-size: 1.75em;
+            font-size: 1.5em;
             margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .experience h3,
+        .education h3 {
+            font-weight: bold;
+            font-size: 1.2em;
             margin-bottom: 5px;
         }
 
-        .experience h3 {
-            font-weight: bold;
-            font-size: 1.5em;
-            margin-bottom: 2px;
-        }
-
-        .experience .details {
+        .details,
+        .gpa {
             color: #7f8c8d;
-            font-size: 1.1em;
-            margin-bottom: 2px;
+            font-size: 0.9em;
+            margin-bottom: 5px;
         }
 
-        .experience .investments {
-            font-size: 1em;
+        .investments,
+        .degree {
+            font-size: 0.9em;
             margin-bottom: 15px;
         }
 
-        .education h3 {
-            font-weight: bold;
-            font-size: 1.5em;
-            margin-bottom: 2px;
-        }
-
-        .education .gpa {
-            color: #7f8c8d;
-            font-size: 1.1em;
-            margin-bottom: 2px;
-        }
-
-        .education .degree {
-            font-size: 1em;
-        }
-
-        #socials ul {
+        ul {
             list-style-type: none;
             padding: 0;
         }
 
-        #socials ul li {
-            font-size: 1.25em;
+        ul li {
+            font-size: 1em;
             margin-bottom: 10px;
         }
 
-        #blog table {
+        table {
             width: 100%;
             text-align: left;
-            font-size: 1.25em;
+            font-size: 0.9em;
             border-spacing: 0 10px;
         }
 
-        #blog table td {
+        table td {
             padding: 10px;
         }
 
@@ -196,6 +172,39 @@
             background-color: #333;
             color: #fff;
         }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            main {
+                padding: 10%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .location,
+            .fun-fact-container {
+                font-size: 0.9em;
+            }
+
+            .button-container a {
+                font-size: 0.8em;
+                padding: 8px 12px;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+
+            table td {
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 
@@ -216,6 +225,7 @@
         </div>
         <p class="small-note">You can also scroll down!</p>
     </main>
+
 
 
     <section id="work">
@@ -242,7 +252,7 @@
         </div>
         <div class="education">
             <h3>West Windsor-Plainsboro High School South</h3>
-            <p class="gpa">Grade: 4.78 (Top 5% of Graduating Class)</p>
+            <p class="gpa">GPA: 4.78 (Top 5% of Graduating Class)</p>
         </div>
     </section>
 
