@@ -13,6 +13,7 @@
             color: #333;
             margin: 0;
             padding: 0;
+            transition: background-color 0.5s;
         }
 
         main {
@@ -72,12 +73,13 @@
             color: #333;
             font-weight: bold;
             font-size: 0.9em;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
         }
 
         .button-container a:hover {
             background-color: #333;
             color: #fff;
+            box-shadow: 0 0 10px #333;
         }
 
         p.small-note {
@@ -104,26 +106,6 @@
             margin-bottom: 10px;
         }
 
-        .experience h3,
-        .education h3 {
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
-        .details,
-        .gpa {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .investments,
-        .degree {
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-
         ul {
             list-style-type: none;
             padding: 0;
@@ -134,44 +116,64 @@
             margin-bottom: 10px;
         }
 
-        table {
-            width: 100%;
-            text-align: left;
-            font-size: 0.9em;
-            border-spacing: 0 10px;
+        /* Unicorn cursor */
+        body {
+            cursor: none;
         }
 
-        table td {
-            padding: 10px;
+        .custom-cursor {
+            font-size: 2em;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            user-select: none;
+            transition: transform 0.1s ease;
         }
 
-        @keyframes fadeIn {
+        .button-container a:hover+.custom-cursor {
+            transform: scale(1.5);
+        }
+
+        /* Updated Subtle White Shades Background Animation */
+
+        @keyframes pronounced-shades {
             0% {
-                opacity: 0;
+                background-color: #ffffff;
+                /* Pure white */
+            }
+
+            20% {
+                background-color: #f2f2f2;
+                /* Very light gray */
+            }
+
+            40% {
+                background-color: #e0e0e0;
+                /* Light gray */
+            }
+
+            60% {
+                background-color: #cccccc;
+                /* Medium gray */
+            }
+
+            80% {
+                background-color: #d9d9d9;
+                /* Softer light gray */
             }
 
             100% {
-                opacity: 1;
+                background-color: #ffffff;
+                /* Loop back to white */
             }
         }
 
-        .home-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            border: 2px solid #333;
-            padding: 10px 25px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s, color 0.3s;
+        body {
+            animation: pronounced-shades 10s infinite;
         }
 
-        .home-button:hover {
-            background-color: #333;
-            color: #fff;
-        }
+
+
 
         /* Responsive styles */
         @media screen and (max-width: 768px) {
@@ -200,15 +202,135 @@
             .section-title {
                 font-size: 1.2em;
             }
+        }
 
-            table td {
-                font-size: 0.8em;
-            }
+
+        /* Reduce spacing between headings (e.g., Alkeon Capital) and dates */
+        .experience h3,
+        .education h3 {
+            margin-bottom: 3px;
+            /* Tighten the gap */
+        }
+
+        /* Uniform styling for the details (dates and locations) */
+        .details {
+            color: #7a7a7a;
+            /* Light gray for distinction */
+            font-style: italic;
+            margin-bottom: 8px;
+            /* Slightly reduced spacing */
+        }
+
+        /* Reduce gap between Investments and Exits */
+        .investments {
+            margin-bottom: 4px;
+            /* Tighten the gap */
+        }
+
+        /* Consistent spacing between main sections (Work Experience, Education) */
+        .section-title {
+            margin-bottom: 15px;
+            /* Add a bit more space below each section title */
+        }
+
+        /* Reduce margin between main sections (Work Experience and Education) */
+        .section-title {
+            margin-bottom: 10px;
+            /* Reduce gap below section title */
+        }
+
+        /* Reduce gap between sub-elements (Investments and Exits) */
+        .investments {
+            margin-bottom: 3px;
+            /* Slightly tighter spacing */
+        }
+
+        /* Tighter spacing between entries (e.g., Alkeon Capital and ICONIQ Capital) */
+        .experience,
+        .education {
+            margin-bottom: 15px;
+            /* Reduce gap between entries */
+        }
+
+        /* Add slight padding between individual entries (e.g., Work and Education) */
+        div.experience,
+        div.education {
+            padding-bottom: 5px;
+            /* Subtle separation */
+        }
+
+        /* Blog Section Cleanup */
+        #blog table {
+            width: 100%;
+            border-spacing: 0 10px;
+            /* Add spacing between rows */
+        }
+
+        #blog th {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            /* Add a subtle separator for the header */
+            padding-bottom: 5px;
+        }
+
+        #blog td {
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        #blog td a {
+            color: #6b4eff;
+            /* Link color for blog titles */
+            text-decoration: none;
+        }
+
+        #blog td a:hover {
+            text-decoration: underline;
+        }
+
+        #blog td:nth-child(2) {
+            text-align: left;
+            padding-left: 30px;
+            /* Add space between title and date columns */
+        }
+
+        /* Styling for "Where to Find Me" links */
+        #socials ul {
+            list-style: none;
+            /* Remove bullets */
+            padding: 0;
+            margin: 0;
+        }
+
+        #socials li {
+            margin-bottom: 10px;
+            /* Add spacing between links */
+        }
+
+        #socials a {
+            color: #6b4eff;
+            /* Purple link color */
+            text-decoration: none;
+            /* Remove underline */
+            font-size: 1em;
+            /* Ensure readability */
+            font-weight: bold;
+            /* Make links stand out */
+        }
+
+        #socials a:hover {
+            color: #4a34cc;
+            /* Slightly darker purple on hover */
+            text-decoration: underline;
+            /* Add underline on hover for clarity */
         }
     </style>
 </head>
 
 <body>
+
 
     <main>
         <h1>Rishab Bhandari</h1>
@@ -233,25 +355,27 @@
         <h2>About Me</h2>
         <br>
         <div class="section-title">Work Experience</div>
-        <div class="experience">
 
+        <div class="experience">
             <h3>Alkeon Capital</h3>
-            <p class="details">2023 - Present &bull; San Francisco, California</p>
-            <p class="investments">Investments: Databricks, Figma, Zip, Armis, Verkada, 6Sense, Drata, Deepgram<br><br>
-                Exits: AuditBoard (Acquired by Hg)</p>
+            <p class="details">2023 - Present • San Francisco, California</p>
+            <p class="investments">Investments: Databricks, Figma, Zip, Armis, Verkada, 6Sense, Drata, Deepgram</p>
+            <p>Exits: AuditBoard (Acquired by Hg)</p>
         </div>
         <br>
         <div class="experience">
             <h3>ICONIQ Capital</h3>
-            <p class="details">2021 - 2023 &bull; San Francisco, California</p>
-            <p class="investments">Investments: Drata, Fivetran, Unite Us<br><br>
-                Exits: Bill.com (BILL US), CrowdStrike (CRWD US)</p>
+            <p class="details">2021 - 2023 • San Francisco, California</p>
+            <p class="investments">Investments: Drata, Fivetran, Unite Us</p>
+            <p>Exits: Bill.com (BILL US), CrowdStrike (CRWD US)</p>
         </div>
         <br>
         <div class="section-title">Education</div>
-        <div class="education">
 
+
+        <div class="education">
             <h3>Cornell University</h3>
+            <p class="details">2017 - 2021 • Ithaca, New York</p>
             <p class="gpa">GPA: 4.0, Summa Cum Laude</p>
             <p class="degree">Degree: Double Major in Applied Economics and Management & Computer and Information
                 Science</p>
@@ -259,48 +383,66 @@
         <br>
         <div class="education">
             <h3>West Windsor-Plainsboro High School South</h3>
+            <p class="details">2013 - 2017 • West Windsor, New Jersey</p>
             <p class="gpa">GPA: 4.78 (Top 5% of Graduating Class)</p>
         </div>
+
+
     </section>
 
+
     <section id="blog">
-        <br>
-        <br>
-        <br>
-        <br>
         <h2>Blog</h2>
         <p>Here are a few of my recent musings:</p>
         <table>
+            <!-- Header Row -->
+            <tr>
+                <th style="text-align: left;">Blog Title</th>
+                <th style="text-align: left; padding-left: 30px;">Date</th>
+            </tr>
+            <!-- Blog Entries -->
             <tr>
                 <td><a
                         href="https://docs.google.com/document/d/1RqBLCKMFgp44Tg3R1VF1lZmgrcfg6CFI25opK4Pdijg/edit?usp=sharing">
-                        ServiceTitan IPO </a></td>
-                <td>November 2024</td>
+                        ServiceTitan IPO</a></td>
+                <td style="padding-left: 30px;">November 2024</td>
             </tr>
-
             <tr>
                 <td><a
                         href="https://docs.google.com/document/d/1_1V1FoIJL7VBx1SC3w7W3B_AZV_10mvTp5185UxS1i0/edit?usp=sharing">
-                        Betting Small: Backing Odoo </a></td>
-                <td>November 2024</td>
+                        Betting Small: Backing Odoo</a></td>
+                <td style="padding-left: 30px;">November 2024</td>
             </tr>
-
         </table>
     </section>
+
+
 
     <section id="socials">
         <h2>Where to Find Me</h2>
         <p>Here are a few places you can find me online:</p>
         <ul>
             <li><a href="https://www.linkedin.com/in/rb725/">LinkedIn</a></li>
-            <li><a href="https://strava.app.link/DklELy9eFOb">Strava</a>
-            </li>
+            <li><a href="https://strava.app.link/DklELy9eFOb">Strava</a></li>
             <li><a href="https://github.com/RishabBhandari">GitHub</a></li>
         </ul>
     </section>
 
+
+    <div class="custom-cursor">🦄</div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            const cursor = document.querySelector(".custom-cursor");
+            const dynamicFact = document.getElementById("dynamic-fact");
+
+            // Update cursor position
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.left = `${e.pageX}px`;
+                cursor.style.top = `${e.pageY}px`;
+            });
+
+            // Change fun fact text
             const statusList = [
                 "My highschool famously had 'no walls'",
                 "I used to run a meme page in high school that had over 10K followers",
@@ -308,21 +450,16 @@
                 "My favorite word is autotellic - meaning having a purpose in and not apart from itself",
             ];
             let index = 0;
-            const dynamicFact = document.getElementById("dynamic-fact");
 
             function updateFact() {
-                // Start fade out
                 dynamicFact.style.opacity = 0;
-
-                // Wait for fade-out to finish, then update text and fade back in
                 setTimeout(() => {
-                    dynamicFact.textContent = statusList[index]; // Update text
-                    dynamicFact.style.opacity = 1; // Fade in
-                    index = (index + 1) % statusList.length; // Move to the next fact
-                }, 500); // Match fade-out duration
+                    dynamicFact.textContent = statusList[index];
+                    dynamicFact.style.opacity = 1;
+                    index = (index + 1) % statusList.length;
+                }, 500);
             }
-
-            setInterval(updateFact, 3000); // Change fact every 3 seconds
+            setInterval(updateFact, 3000);
         });
     </script>
 
