@@ -52,25 +52,33 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            /* Left-align the text */
             justify-content: center;
-            height: 100vh;
-            padding: 5%;
             text-align: left;
+            /* Ensure text alignment is left */
+            height: 100vh;
+            padding: 20px;
+            /* Add padding for breathing room */
+            font-family: "Arial", sans-serif;
         }
 
+
         h1 {
+            text-align: left;
             font-weight: bold;
             font-size: 2.5em;
-            margin: 0;
+            margin: 0 0 10px 0;
             display: flex;
             align-items: center;
         }
+
 
         h1::after {
             content: " 👋";
             font-size: 0.9em;
             margin-left: 0.5em;
         }
+
 
         /* Buttons */
         .button-container {
@@ -82,19 +90,41 @@
 
         .button-container a {
             border: 2px solid #333;
-            padding: 10px 15px;
+            padding: 10px 20px;
             text-decoration: none;
             color: #333;
             font-weight: bold;
-            font-size: 0.9em;
-            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            font-size: 1em;
+            transition: all 0.3s ease-in-out;
+            border-radius: 4px;
         }
 
         .button-container a:hover {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
-            box-shadow: 0 0 10px #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        @keyframes fade-in-out {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                /* Avoid full disappearance */
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        #dynamic-fact {
+            display: inline-block;
+            /* Prevent text jumping */
+            transition: opacity 0.5s ease-in-out;
+        }
+
 
         /* Sections */
         section {
@@ -183,8 +213,11 @@
             transform: translate(-50%, -50%);
             user-select: none;
             transition: transform 0.1s ease;
+            z-index: 1000;
+            /* Ensure the cursor is visible above all other elements */
         }
 
+        /* Ensure the cursor works on hover */
         .button-container a:hover+.custom-cursor {
             transform: scale(1.5);
         }
@@ -230,6 +263,37 @@
             margin-bottom: 15px;
             padding-bottom: 5px;
         }
+
+        /* Left-align subtext */
+        p {
+            text-align: left;
+            margin: 5px 0;
+            color: #555;
+        }
+
+        /* Button container - Align buttons to the left */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: flex-start;
+            /* Align buttons to the left */
+        }
+
+        /* Section layout - Left alignment */
+        section {
+            padding: 20px 5%;
+            scroll-margin-top: 120px;
+            text-align: left;
+            /* Ensure text is left-aligned */
+        }
+
+        section h2 {
+            font-size: 1.75em;
+            margin-bottom: 15px;
+            text-align: left;
+        }
     </style>
 
 
@@ -241,20 +305,26 @@
 
 
     <main>
-        <h1>Rishab Bhandari</h1>
-        <p class="location">San Francisco, California | Princeton, New Jersey</p>
-        <p class="fun-fact-container">
-            <span class="fun-fact-static">Fun Fact:</span>
-            <span class="fun-fact-dynamic" id="dynamic-fact">I recently ran my first marathon</span>
+        <h1 style="font-size: 3.5em; font-weight: 800; margin: 0; color: #000;">Rishab Bhandari</h1>
+        <p style="font-size: 1.2em; margin: 5px 0 0; color: #555;">San Francisco, California | Princeton, New Jersey</p>
+
+
+        <p style="font-size: 1em; margin: 10px 0 0; color: #555;">
+            <span>Fun Fact:</span>
+            <span id="dynamic-fact" style="animation: fade-in-out 4s infinite;">I recently ran my first marathon</span>
         </p>
-        <div class="button-container">
-            <a href="#work">About Me</a>
-            <a href="#blog">Blog</a>
-            <a href="#socials">Where to Find Me</a>
-            <a href="mailto:rishab.bhandari@gmail.com">Get in Touch</a>
+
+
+
+
+        <div class="button-container" style="margin-top: 15px;">
+            <a href="#work" style="font-size: 1em; border-radius: 4px; padding: 10px 20px;">About Me</a>
+            <a href="#blog" style="font-size: 1em; border-radius: 4px; padding: 10px 20px;">Blog</a>
+            <a href="#socials" style="font-size: 1em; border-radius: 4px; padding: 10px 20px;">Find Me</a>
         </div>
-        <p class="small-note">You can also scroll down!</p>
+        <p class="small-note" style="margin-top: 10px; font-size: 0.9em; color: #aaa;">You can also scroll down!</p>
     </main>
+
 
     <section id="blog">
 
@@ -358,35 +428,38 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const cursor = document.querySelector(".custom-cursor");
-            const dynamicFact = document.getElementById("dynamic-fact");
+            const facts = [
+                "My high school famously had 'no walls'",
+                "I used to run a meme page in high school with over 10K followers",
+                "Selling custom t-shirts was my first entrepreneurial scheme",
+                "My favorite word is 'autotelic'—having a purpose in and not apart from itself",
+            ];
+            const factElement = document.getElementById("dynamic-fact"); // Target dynamic part only
+            let index = 0;
 
-            // Update cursor position
+            // Custom Cursor Movement
             document.addEventListener("mousemove", (e) => {
                 cursor.style.left = `${e.pageX}px`;
                 cursor.style.top = `${e.pageY}px`;
             });
 
-            // Change fun fact text
-            const statusList = [
-                "My highschool famously had 'no walls'",
-                "I used to run a meme page in high school that had over 10K followers",
-                "Selling custom t-shirts for local events was my first entrepreneurial scheme",
-                "My favorite word is autotellic - meaning having a purpose in and not apart from itself",
-            ];
-            let index = 0;
+            // Fun Fact Rotation (Only changes the dynamic part)
 
+            // Fun Fact Rotation (Improved Smooth Transition)
             function updateFact() {
-                dynamicFact.style.opacity = 0;
+                factElement.style.transition = "opacity 0.5s ease";
+                factElement.style.opacity = 0.5; // Dim the current fact without disappearing completely
                 setTimeout(() => {
-                    dynamicFact.textContent = statusList[index];
-                    dynamicFact.style.opacity = 1;
-                    index = (index + 1) % statusList.length;
-                }, 500);
+                    factElement.textContent = facts[index];
+                    index = (index + 1) % facts.length; // Cycle through facts
+                    factElement.style.opacity = 1; // Restore full opacity for the new fact
+                }, 500); // Wait for fade-in to start after text update
             }
-            setInterval(updateFact, 3000);
+
+
+            setInterval(updateFact, 4000); // Change fact every 4 seconds
         });
     </script>
-
 
 </body>
 
